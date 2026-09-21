@@ -12,24 +12,24 @@ namespace BlogApi.Controllers
         public string ConnectionString = "server=localhost;uid=root;password=;database=blog;";
 
         [HttpPost]
-        public object AddNewBlogger([FromBody] AddNewBloggerDto addNewBloggerDto)
+        public object AddNewBlogger([FromBody] AddNewBloggerPostDto addNewBloggerPostDto)
         {
             var connection = new MySqlConnection(ConnectionString);
             connection.Open();
-            string sql = @"INSERT INTO `blogpost`(`id`, `blog_id`, `title`, `content`, `created_at`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]')";
+            string sql = @"INSERT INTO `blogpost`(`Title`, `Content`, `postTime`, `updateTime`, `blog`) VALUES (@Title, @Content, @postTime,@updateTime, @blogId)";
 
             var cmd = new MySqlCommand(sql, connection);
 
-            cmd.Parameters.AddWithValue("@name", addNewBloggerDto.Name);
-            cmd.Parameters.AddWithValue("@email", addNewBloggerDto.Email);
-            cmd.Parameters.AddWithValue("@age", addNewBloggerDto.Age);
-            cmd.Parameters.AddWithValue("@password", addNewBloggerDto.Password);
-            cmd.Parameters.AddWithValue("@registrationtime", DateTime.Now);
+            cmd.Parameters.AddWithValue("@title", addNewBloggerPostDto.Title);
+            cmd.Parameters.AddWithValue("@content", addNewBloggerPostDto.Content);
+            cmd.Parameters.AddWithValue("@postTime", DateTime.Now);
+            cmd.Parameters.AddWithValue("@updateTime", DateTime.Now);
+            cmd.Parameters.AddWithValue("@blogId", addNewBloggerPostDto.blogId);
 
             cmd.ExecuteNonQuery();
 
             connection.Close();
-            return new { massage = "Sikeres felvétel", result = addNewBloggerDto };
+            return new { massage = "Sikeres felvétel", result = addNewBloggerPostDto };
         }
     }
 }

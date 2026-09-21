@@ -70,3 +70,4 @@ C:\Users\zelenkar\Desktop\Backend\Blog13A-main\BlogApi\obj\Debug\net10.0\refint\
 C:\Users\zelenkar\Desktop\Backend\Blog13A-main\BlogApi\obj\Debug\net10.0\BlogApi.pdb
 C:\Users\zelenkar\Desktop\Backend\Blog13A-main\BlogApi\obj\Debug\net10.0\BlogApi.genruntimeconfig.cache
 C:\Users\zelenkar\Desktop\Backend\Blog13A-main\BlogApi\obj\Debug\net10.0\ref\BlogApi.dll
+C:\Users\zelenkar\Desktop\Backend\Blog13A-main\BlogApi\obj\Debug\net10.0\BlogApi.sourcelink.json
